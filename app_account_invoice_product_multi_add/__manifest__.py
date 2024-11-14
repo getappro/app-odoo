@@ -23,7 +23,7 @@
 ##############################################################################
 
 {
-    'name': "App Account Invoice Product Multi Batch Add",
+    'name': "App Account Invoice Product Multi Batch Add,收据发票批量添加明细",
     'version': '16.23.10.20',
     'author': 'odooai.cn',
     'category': 'Extra tools',

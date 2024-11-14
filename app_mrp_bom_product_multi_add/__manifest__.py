@@ -28,7 +28,7 @@
 # description:
 
 {
-    'name': "App MRP Bom Product Multi Batch Add",
+    'name': "App MRP Bom Product Multi Batch Add,生产制造Bom批量增加产品",
     'version': '16.23.10.23',
     'author': 'odooai.cn',
     'category': 'Extra tools',

@@ -16,7 +16,7 @@
 # description:
 
 {
-    'name': "App Stock Picking Order Product Multi Batch Add",
+    'name': "App Stock Picking Order Product Multi Batch Add,仓库作业批量添加明细及产品",
     'version': '13.19.11.19',
     'author': 'odooai.cn',
     'category': 'Warehouse',
