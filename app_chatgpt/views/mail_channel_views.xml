@@ -10,6 +10,7 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="ai_partner_id" optional="show"/>
                     <field name="description" optional="show"/>
+                    <field name="is_private" optional="show"/>
                     <field name="set_max_tokens" optional="hide"/>
                 </xpath>
             </field>
