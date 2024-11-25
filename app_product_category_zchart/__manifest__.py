@@ -23,7 +23,7 @@
 
 {
     'name': 'Category zChart Hierarchy, 产品目录多层级结构图',
-    'version': '15.21.12.06',
+    'version': '16.24.11.25',
     'author': 'odooai.cn',
     'category': 'Extra tools',
     'website': 'https://www.odooai.cn',
@@ -33,8 +33,8 @@
     Chart Hierarchy Widget. Hierarchy Chart, Hierarchy Tree for multi level Parent Children relation tree.
     Free for category Hierarchy chart, stock Hierarchy chart. account chart.
     """,
-    'description': """    
-Need extra paid apps https://www.odoo.com/apps/modules/14.0/app_web_chart_hierarchy/ 
+    'description': """
+Need extra paid apps https://www.odoo.com/apps/modules/14.0/app_web_chart_hierarchy/
 This module extend to show a Hierarchy chart.
 (N+1, N+2, direct subordinates)
 image: image_field,
