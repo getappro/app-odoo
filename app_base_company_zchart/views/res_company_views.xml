@@ -27,6 +27,7 @@
                         <div id="o_node_right">
                             <h4 class="o_chart_hierarchy_title mb16 mt0">Group Company Chart</h4>
                             <field name="child_ids" widget="ztree_chart" nolabel="1"/>
+                            <field name="id" invisible="1"/>
                         </div>
                     </div>
                 </xpath>
