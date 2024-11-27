@@ -50,7 +50,7 @@ This module extend to show a Hierarchy chart
     5.
     6.
     11. Multi-language Support. Multi-Company Support.
-    12. Support Odoo 17,16,15,14,13,12, Enterprise and Community and odoo.sh Edition.
+    12. Support Odoo 18,17,16,15,14,13,12, Enterprise and Community and odoo.sh Edition.
     13. Full Open Source.
     ========== 中文说明
     1.
@@ -58,7 +58,7 @@ This module extend to show a Hierarchy chart
     3.
     4.
     11. 多语言支持，多公司支持
-    12. Odoo 17,16,15,14,13,12, 企业版，社区版，在线SaaS.sh版，等全版本支持
+    12. Odoo 18,17,16,15,14,13,12, 企业版，社区版，在线SaaS.sh版，等全版本支持
     13. 代码完全开源
     ''',
     'depends': [
