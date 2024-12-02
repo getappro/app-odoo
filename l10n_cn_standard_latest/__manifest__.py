@@ -9,7 +9,7 @@
 
 {
     'name': '2023最新中国会计科目表.企业标准会计.Latest Chinese Accounting for odoo16',
-    'version': '16.24.11.08',
+    'version': '16.24.12.02',
     'author': 'odooai.cn',
     'category': 'Accounting/Localizations/Account Charts',
     'website': 'https://www.odooai.cn',
@@ -30,6 +30,9 @@
     5. 增加树状结构，支持二级科目，可设置上级科目，配合 "app_web_superbar" 使用可轻易实现树状导航。
     6. 使用金蝶的会计科目命名法对多级科目进行初始化。可自行调整为用友科目命名法
     7. 注意，必须在没有业务数据，没有会计科目的初始环境。可以使用 "app_odoo_customize" 模块清除财务数据，重置会计科目。
+    11. 多语言支持，多公司支持
+    12. Odoo 18,17,16,15,14,13,12, 企业版，社区版，在线SaaS.sh版，等全版本支持
+    13. 代码完全开源
     如果是多语种环境需要自行更改翻译，主要体现在1%,3%,6%,13%增值税处理。
     中国财务，中国会计，中国城市
     欧度智能，odooai.cn
