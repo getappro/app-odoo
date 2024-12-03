@@ -57,7 +57,7 @@
         # 'website',
     ],
     'data': [
-        'data/auth_oauth_data.xml',
+        # 'data/auth_oauth_data.xml',
     ],
     'assets': {
         'web.assets_frontend': [

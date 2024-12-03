@@ -52,9 +52,12 @@
     ''',
     'depends': [
         'app_common',
+        'auth_oauth',
         # 'website',
     ],
     'data': [
+        'data/auth_oauth_data.xml',
+        'views/auth_oauth_provider_views.xml',
         'views/res_config_settings_views.xml',
     ],
     'assets': {
@@ -66,8 +69,6 @@
         ],
     },
     'demo': [
-        # 'data/model_new_demo.xml',
-        # 'views/website_templates.xml',
     ],
     # 'pre_init_hook': 'pre_init_hook',
     # 'post_init_hook': 'post_init_hook',
