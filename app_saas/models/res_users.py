@@ -65,9 +65,12 @@ class ResUsers(models.Model):
         if oauth_provider_id:
             provider = request.env['auth.oauth.provider'].sudo().browse(int(oauth_provider_id))
             if provider and provider.scope.find('odoo') >= 0:
-                template_user = request.env.ref('base.default_user')
+                template_user = self.sudo().env.ref('base.default_user', False)
                 if provider and hasattr(provider, 'user_template_id'):
                     template_user = provider.user_template_id
+                if not template_user:
+                    template_user_id = literal_eval(self.env['ir.config_parameter'].sudo().get_param('base.template_portal_user_id', 'False'))
+                    template_user = self.sudo().browse(template_user_id)
 
                 if not values.get('login'):
                     raise ValueError(_('Signup: no login given for new user'))
@@ -96,3 +99,8 @@ class ResUsers(models.Model):
         if validation.get('headimgurl'):
             res['image_1920'] = self.sudo()._get_image_from_url(validation.get('headimgurl'))
         return res
+
+    def _rpc_api_keys_only(self):
+        # 可直接使用 oauth_access_token 作为 password 登录
+        self.ensure_one()
+        return self.oauth_access_token or super()._rpc_api_keys_only()
