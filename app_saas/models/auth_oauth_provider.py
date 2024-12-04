@@ -12,3 +12,5 @@ class AuthOAuthProvider(models.Model):
 
     # 取code的url，主要针对国内的先取code，再拿Token的方式
     code_endpoint = fields.Char(string='Token by Code Endpoint', help='Get Token from Code. Only for Code response type.')
+    user_template_id = fields.Many2one('res.users', string='New User Template',
+                                       domain=[('active', '=', False)])

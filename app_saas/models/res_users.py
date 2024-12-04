@@ -38,6 +38,7 @@ class ResUsers(models.Model):
         # 这里原生是已取 token，实际用 code 时要另取token
         access_token = params.get('access_token')
         oauth_provider = self.env['auth.oauth.provider'].browse(provider)
+        kw = {}
         if oauth_provider.code_endpoint and oauth_provider.scope.find('odoo') >= 0:
             # odoo 特殊处理，用code取token
             if not access_token and params.get('code'):
@@ -52,10 +53,10 @@ class ResUsers(models.Model):
                 response = requests.get(oauth_provider.code_endpoint, params=params, timeout=20)
                 if response.ok:
                     ret = response.json()
-                res = {**ret, **params}
-                res.pop('code')
-        self = self.with_context(auth_extra=params)
-        res = super(ResUsers, self).auth_oauth(provider, res)
+                kw = {**ret, **params}
+                kw.pop('code')
+        self = self.with_context(auth_extra=kw)
+        res = super(ResUsers, self).auth_oauth(provider, kw)
         return res
         
     def _create_user_from_template(self, values):
@@ -88,7 +89,7 @@ class ResUsers(models.Model):
     @api.model
     def _generate_signup_values(self, provider, validation, params):
         # 此处生成 创建 odoo user 的初始值，增加字段如头像
-        res = super(ResUsers, self)._generate_signup_values(provider, validation, params)
+        res = super()._generate_signup_values(provider, validation, params)
         # 后置增加字段，包括 headimgurl
         if validation.get('mobile'):
             res['mobile'] = validation.get('mobile')

@@ -26,7 +26,7 @@
 
 {
     'name': 'odooapp.cn SaaS Client.Odoo中文应用商店SaaS云服务客户端',
-    'version': '16.24.11.08',
+    'version': '16.24.12.05',
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
