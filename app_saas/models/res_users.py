@@ -36,29 +36,51 @@ class ResUsers(models.Model):
     @api.model
     def auth_oauth(self, provider, params):
         # 这里原生是已取 token，实际用 code 时要另取token
+        code = params.get('code', False)
         access_token = params.get('access_token')
-        oauth_provider = self.env['auth.oauth.provider'].browse(provider)
+        oauth_provider = self.env['auth.oauth.provider'].sudo().browse(provider)
+        
         kw = {}
-        if oauth_provider.code_endpoint and oauth_provider.scope.find('odoo') >= 0:
+        if oauth_provider.code_endpoint and code and not access_token:
             # odoo 特殊处理，用code取token
-            if not access_token and params.get('code'):
+            params.update({
+                'scope': oauth_provider.scope or '',
+                'client_id': oauth_provider.client_id or '',
+            })
+            if hasattr(oauth_provider, 'client_secret') and oauth_provider.client_secret:
                 params.update({
-                    'scope': oauth_provider.scope or '',
-                    'client_id': oauth_provider.client_id or '',
+                    'client_secret': oauth_provider.client_secret or '',
                 })
-                if hasattr(oauth_provider, 'client_secret') and oauth_provider.client_secret:
-                    params.update({
-                        'client_secret': oauth_provider.client_secret or '',
-                    })
-                response = requests.get(oauth_provider.code_endpoint, params=params, timeout=20)
-                if response.ok:
-                    ret = response.json()
-                kw = {**ret, **params}
-                kw.pop('code')
+            response = requests.get(oauth_provider.code_endpoint, params=params, timeout=20)
+            if response.ok:
+                ret = response.json()
+            kw = {**ret, **params}
+            kw.pop('code', False)
         self = self.with_context(auth_extra=kw)
         res = super(ResUsers, self).auth_oauth(provider, kw)
         return res
-        
+
+    def _auth_oauth_signin(self, provider, validation, params):
+        # 用户绑定的额外处理，如果有同 login 用户则直接绑定
+        # todo: 当前不管多公司，在 social_login 里有更细节判断，后续优化
+        oauth_provider = self.env['auth.oauth.provider'].sudo().browse(provider)
+        if oauth_provider and oauth_provider.scope.find('odoo') >= 0:
+            oauth_uid =validation.get('user_id')
+            if oauth_uid:
+                odoo_user = self.sudo().search([('login', '=', oauth_uid)], limit=1)
+                if odoo_user and not (odoo_user.oauth_access_token and odoo_user.oauth_provider_id and odoo_user.oauth_uid):
+                    vals = {
+                        'oauth_provider_id': provider,
+                        'oauth_access_token': params.get('access_token'),
+                        'oauth_uid': oauth_uid,
+                    }
+                    odoo_user.write(vals)
+                    _logger.info('========= _auth_oauth_signin res.users write：%s' % vals)
+                    self._cr.commit()
+                    return odoo_user.user_id.login
+        res = super(ResUsers, self)._auth_oauth_signin(provider, validation, params)
+        return res
+    
     def _create_user_from_template(self, values):
         # 处理odooapp.cn 为 server 时 默认为内部用户
         oauth_provider_id = values.get('oauth_provider_id')
