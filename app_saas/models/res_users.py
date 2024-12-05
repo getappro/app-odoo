@@ -63,6 +63,7 @@ class ResUsers(models.Model):
     def _auth_oauth_signin(self, provider, validation, params):
         # 用户绑定的额外处理，如果有同 login 用户则直接绑定
         # todo: 当前不管多公司，在 social_login 里有更细节判断，后续优化
+        # todo: 当前同名就写 oauth 信息，不安全，要优化
         oauth_provider = self.env['auth.oauth.provider'].sudo().browse(provider)
         if oauth_provider and oauth_provider.scope.find('odoo') >= 0:
             oauth_uid =validation.get('user_id')
