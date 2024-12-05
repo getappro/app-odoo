@@ -35,7 +35,7 @@ class ResUsers(models.Model):
     
     @api.model
     def auth_oauth(self, provider, params):
-        # 这里原生是已取 token，实际用 code 时要另取token
+        # 这里原生是没处理code模式，此处将增加使用code取token，不在 controller 中处理
         code = params.get('code', False)
         access_token = params.get('access_token')
         oauth_provider = self.env['auth.oauth.provider'].sudo().browse(provider)
@@ -51,9 +51,13 @@ class ResUsers(models.Model):
                 params.update({
                     'client_secret': oauth_provider.client_secret or '',
                 })
-            response = requests.get(oauth_provider.code_endpoint, params=params, timeout=20)
+            response = requests.get(oauth_provider.code_endpoint, params=params, timeout=30)
             if response.ok:
                 ret = response.json()
+                # todo: 客户机首次连接时，取到的 server 端 key 写入 provider 的 client_secret
+                if ret.get('push_client_secret') and hasattr(oauth_provider, 'client_secret'):
+                    oauth_provider.write({'client_secret': ret.get('push_client_secret')})
+                    self._cr.commit()
             kw = {**ret, **params}
             kw.pop('code', False)
         self = self.with_context(auth_extra=kw)
@@ -87,10 +91,10 @@ class ResUsers(models.Model):
         oauth_provider_id = values.get('oauth_provider_id')
         if oauth_provider_id:
             provider = request.env['auth.oauth.provider'].sudo().browse(int(oauth_provider_id))
-            if provider and provider.scope.find('odoo') >= 0:
-                template_user = self.sudo().env.ref('base.default_user', False)
-                if provider and hasattr(provider, 'user_template_id'):
-                    template_user = provider.user_template_id
+            if provider:
+                template_user = provider.user_template_id
+                if not template_user and provider.scope.find('odoo') >= 0:
+                    template_user = self.sudo().env.ref('base.default_user', False)
                 if not template_user:
                     template_user_id = literal_eval(self.env['ir.config_parameter'].sudo().get_param('base.template_portal_user_id', 'False'))
                     template_user = self.sudo().browse(template_user_id)
