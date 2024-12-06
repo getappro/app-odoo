@@ -34,7 +34,7 @@ class ResUsers(models.Model):
     _inherit = 'res.users'
     
     @api.model
-    def get_token_with_code(self, provider, params):
+    def get_token_from_code(self, provider, params):
         # 通过 code 取 token
         # 这里原生是没处理code模式，此处将增加使用code取token，不在 controller 中处理
         oauth_provider = self.env['auth.oauth.provider'].sudo().browse(provider)
@@ -64,10 +64,10 @@ class ResUsers(models.Model):
         access_token = params.get('access_token')
         oauth_provider = self.env['auth.oauth.provider'].sudo().browse(provider)
         # 额外code 处理
-        kw = {}
+        kw = params
         if oauth_provider.code_endpoint and code and not access_token:
-            ret = self.get_token_with_code(provider, params)
-            kw = {**ret, **params}
+            ret = self.get_token_from_code(provider, params)
+            kw.update(ret)
             kw.pop('code', False)
             
         self = self.with_context(auth_extra=kw)
