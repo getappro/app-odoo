@@ -25,8 +25,8 @@
 ##############################################################################
 
 {
-    'name': 'odooapp.cn SaaS Client.Odoo中文应用商店SaaS云服务客户端',
-    'version': '16.24.12.05',
+    'name': 'odooapp.cn SaaS Client-Ai Passport.Odoo中文应用商店SaaS云服务客户端',
+    'version': '16.24.12.06',
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
@@ -37,17 +37,21 @@
     'currency': 'EUR',
     'images': ['static/description/banner.png'],
     'summary': '''
-    Odoo中文云服务客户端，模块持续更新中。
+    AiSaas云服务，使用Ai通行证，一键实现全社交媒体统一登录SSO。
+    支持微信、抖音、QQ、淘宝、钉钉、支付宝、企业微信、Facebook、Google、微软Azure等整合登录。
+    在Odoo中获取最新的中文翻译（另行收费），获取当前Odoo模块最新版本更新等。
     支持Odoo中文版在线更新及 www.odooapp.cn 的信息推送等。
     安装即代表同意我司云服务用户协议及隐私政策。 https://www.odooapp.cn/conditions
     ''',
     'description': '''
-    1. 快速访问Odoo中文应用商店并获取独享Odoo中文通行码
-    2. 一键获取最新应用信息，最新行业服务包
-    3. 一键获取Odoo中文翻译更新
-    4. 快速获取Odoo服务，Odoo升级评估
+    1. Ai通行证实现全社交媒体登录支持
+    2. 快速访问Odoo中文应用商店并获取独享Odoo中文通行码，可随时断开云服务连接
+    3. 一键获取最新Odoo中文应用模块与主题，最新行业服务包
+    4. 一键获取Odoo中文翻译更新（收费）
+    5. 快速获取Odoo服务，Odoo升级评估
+    6. 系统出错时一键提交，获取技术支持（会员专属）
     11.多语言支持，多公司支持
-    12.仅从Odoo18企业版，社区版版本开始支持
+    12.仅从Odoo18-16企业版，社区版版本开始支持
     13.代码完全开源
     ''',
     'depends': [
