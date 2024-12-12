@@ -36,7 +36,7 @@ class AccountAccount(models.Model):
         done = 0
         # 分隔符 delimiter，用友为""，金蝶为 "."，注意odoo中一级科目，现金默认定义是4位头，银行是6位头
         # 我们使用 用友的多级科目方式，自动生成下级，此处直接覆盖原生
-        delimiter = company.chart_template_id.delimiter or ''
+        delimiter = company.coa_delimiter or ''
         for rec in self:
             if len(rec.code) > 2:
                 p_code = rec.code[:len(rec.code) - 2]

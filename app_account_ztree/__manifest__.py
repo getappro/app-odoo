@@ -44,17 +44,6 @@
         'views/account_account_views.xml',
         'views/res_company_views.xml',
     ],
-    'demo': [
-    ],
-    'test': [
-    ],
-    'css': [
-    ],
-    'qweb': [
-        'static/src/xml/*.xml',
-    ],
-    'js': [
-    ],
     'post_load': None,
     'post_init_hook': 'post_init_hook',
     'installable': True,
