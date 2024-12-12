@@ -21,7 +21,7 @@
             <field name="inherit_id" ref="account.view_account_form"/>
             <field name="arch" type="xml">
               <xpath expr="//field[@name='account_type']" position="after">
-                  <field name="parent_id" widget="ztree_select"/>
+                  <field name="parent_id" widget="ztree_select" options="{'ztree_name_field': 'display_name'}"/>
               </xpath>
             </field>
         </record>
