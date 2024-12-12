@@ -9,10 +9,6 @@ class AccountJournal(models.Model):
 
     @api.model
     def _prepare_liquidity_account(self, name, company, currency_id, type):
-        digits = 6
-        chart = self.company_id.chart_template_id
-        if chart:
-            digits = int(chart.code_digits)
         # Seek the next available number for the account code
         if type == 'bank':
             account_code_prefix = company.bank_account_code_prefix or ''

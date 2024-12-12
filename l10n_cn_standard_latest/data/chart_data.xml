@@ -4,6 +4,7 @@
     <record id="l10n_chart_china_standard_business_latest" model="account.chart.template">
         <field name="name">2023中国企业会计科目表-odoo16</field>
         <field name="code_digits" eval="4"/>
+        <field name="delimiter">.</field>
         <field name="currency_id" ref="base.CNY"/>
         <field name="country_id" ref="base.cn"/>
         <field name="cash_account_code_prefix">1001</field>

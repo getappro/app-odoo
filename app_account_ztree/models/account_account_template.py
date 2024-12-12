@@ -20,4 +20,14 @@ from odoo import api, fields, models, exceptions, _
 class AccountAccountTemplate(models.Model):
 
     _inherit = ['account.account.template']
-    # 相关方法处理移至 app_account_ztree
+    _parent_name = "parent_id"
+    _parent_store = True
+    _parent_order = 'code'
+    # _rec_name = 'complete_name'
+
+    # todo: 具体项目中，可以parent_id 处理为 compute, inverse=xxx(直接用pass)，与 code_digits，
+    parent_id = fields.Many2one('account.account.template', 'Parent Chart', index=True, ondelete='cascade')
+    child_ids = fields.One2many('account.account.template', 'parent_id', 'Child Chart')
+    parent_path = fields.Char(index=True, unaccent=False)
+
+
