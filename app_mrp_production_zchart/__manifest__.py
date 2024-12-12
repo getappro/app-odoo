@@ -22,8 +22,8 @@
 
 
 {
-    'name': 'MRP Production zChart Hierarchy, 生产单多层级结构图',
-    'version': '16.24.08.28',
+    'name': 'MRP Production zChart Hierarchy, 多级BoM生产单多层级执行结构图,适用于多级BoM的生产工单,一棵树全览关联生产',
+    'version': '16.24.12.12',
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
@@ -35,13 +35,8 @@
     """,
     'description': """    
     MRP Hierarchy chart,  MO Hierarchy chart, mrp multi level.
-Need extra paid apps https://www.odoo.com/apps/modules/13.0/app_web_chart_hierarchy/ 
+Need extra paid apps app_web_widget_ztree
 This module extend to show a Hierarchy chart.
-(N+1, N+2, direct subordinates)
-image: image_field,
-desc: descript_field,
-direct_sub: children_field, must be one2many,
-child_all_count: child_all_count field, count of direct and indirect children.
     """,
     'price': 0.00,
     'currency': 'EUR',
