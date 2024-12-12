@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-<!--        注意，此处不再显示 parent_id 的处理， 调整至 app_account_ztree -->
-      <!-- account.account -->
-      <record id="init_accounts_tree" model="ir.ui.view">
-          <field name="name">app.account.setup.opening.move.line.tree</field>
-          <field name="model">account.account</field>
-          <field name="inherit_id" ref="account.init_accounts_tree"/>
-          <field name="arch" type="xml">
-              <xpath expr="//field[@name='account_type']" position="after">
-                  <field name="group_id"/>
-              </xpath>
-          </field>
-      </record>
-
-      <record id="app_view_account_search" model="ir.ui.view">
-          <field name="name">app.account.account.search</field>
-          <field name="model">account.account</field>
-          <field name="inherit_id" ref="account.view_account_search"/>
-          <field name="arch" type="xml">
-              <xpath expr="//group" position="inside">
-                  <filter string="Group" name="account_group" domain="" context="{'group_by':'group_id'}"/>
-              </xpath>
-          </field>
-      </record>
+<!--        注意，此处不再显示 parent_id 的处理， 调整至 app_account_ztree 和 app_account_pro -->
     </data>
 </odoo>
