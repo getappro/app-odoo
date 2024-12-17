@@ -34,7 +34,7 @@
     Free for category Hierarchy chart, stock Hierarchy chart. account chart.
     """,
     'description': """    
-Need extra paid apps https://www.odoo.com/apps/modules/13.0/app_web_chart_hierarchy/ 
+Need extra paid apps https://www.odoo.com/apps/modules/16.0/app_web_widget_ztree/ 
 This module extend to show a Hierarchy chart.
 (N+1, N+2, direct subordinates)
 image: image_field,
