@@ -7,5 +7,21 @@
             <field name="address_format" eval="'%(country_name)s%(state_name)s%(city)s%(street)s\n%(street2)s'"/>
             <field name="address_view_id" ref="app_base_chinese.app_view_partner_form_chinese"/>
         </record>
+        <function model="res.country" name="write" context="{'lang': 'zh_CN'}">
+            <value eval="[ref('base.cn')]"/>
+            <value eval="{'sequence': 1}"/>
+        </function>
+        <function model="res.country" name="write" context="{'lang': 'zh_CN'}">
+            <value eval="[ref('base.hk')]"/>
+            <value eval="{'sequence': 11}"/>
+        </function>
+        <function model="res.country" name="write" context="{'lang': 'zh_CN'}">
+            <value eval="[ref('base.mo')]"/>
+            <value eval="{'sequence': 21}"/>
+        </function>
+        <function model="res.country" name="write" context="{'lang': 'zh_CN'}">
+            <value eval="[ref('base.tw')]"/>
+            <value eval="{'sequence': 31}"/>
+        </function>
     </data>
 </odoo>
