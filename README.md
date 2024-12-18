@@ -76,7 +76,7 @@ Default country, timezone, currency, partner...
 
 中国化增强-基础
 
-1. 中文默认值，如国家、时区、货币等。处理模块 base, product.
+1. 中文默认值，如国家/地区、时区、货币等。处理模块 base, product.
 
 2. 客户加简称，地址显示中文化，客户编码显示优先
 
@@ -203,7 +203,7 @@ App MRP Bom Product Multi Batch Add
     8. 在用户菜单中增加开发者手册，含python教程，jquery参考，Jinja2模板，PostgresSQL参考
     9. 在用户菜单中自定义"My odoo.com account"
     10. 单独设置面板，每个选项都可以自定义
-    11. 提供236个国家的国旗文件（部份需要自行设置文件名）
+    11. 提供236个国家/地区的国旗文件（部份需要自行设置文件名）
     12. 多语言版本
     13. 自定义登陆界面中的 Powered by Odoo
     14. 快速删除测试数据，支持模块包括：销售/POS门店/采购/生产/库存/会计/项目/消息与工作流等.
