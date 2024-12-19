@@ -23,7 +23,7 @@
 
 {
     'name': 'MRP Production zChart Hierarchy, 多级BoM生产单多层级执行结构图,适用于多级BoM的生产工单,一棵树全览关联生产',
-    'version': '16.24.12.12',
+    'version': '16.24.12.19',
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
@@ -31,9 +31,9 @@
     'sequence': 2,
     'summary': """
     Manufacture Order multi level. For Multi level MO MRP Production Order from multi bom. MRP Hierarchy. MO hierarchy
-    Chart Hierarchy Widget. Hierarchy Chart, Hierarchy Tree for multi level Parent Children relation tree.  
+    Chart Hierarchy Widget. Hierarchy Chart, Hierarchy Tree for multi level Parent Children relation tree.
     """,
-    'description': """    
+    'description': """
     MRP Hierarchy chart,  MO Hierarchy chart, mrp multi level.
 Need extra paid apps app_web_widget_ztree
 This module extend to show a Hierarchy chart.
