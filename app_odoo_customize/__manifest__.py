@@ -23,7 +23,7 @@
 
 {
     'name': 'odoo Tweak,Ai Employee,Boost,Customize All in One. Customize,UI,Boost,Security,Data',
-    'version': '16.24.11.13',
+    'version': '16.24.12.19',
     'author': 'odooai.cn',
     'category': 'Extra Tools',
     'website': 'https://www.odooai.cn',
@@ -32,7 +32,7 @@
     'sequence': 2,
     'images': ['static/description/banner.gif'],
     'summary': """
-    Ai as employee.1 click Tweak odoo. 48 Functions odoo enhancement. for Customize,UI,Boost Security,Development.
+    50+ Odoo Enhance in 1 click Tweak odoo. all in one odoo enhancement. for Customize,UI,Boost Security,Development.
     Easy reset data, clear data, reset account chart, reset Demo data.
     For quick debug. Set brand,Language Switcher all in one.
     """,
@@ -94,8 +94,6 @@
     'description': """
     App Customize Odoo (Change Title,Language,Documentation,Quick Debug)
     ============
-    For Odoo17. Please get from the follow github. Done for 85%.
-    https://github.com/guohuadeng/app-odoo/tree/17.0
     White label odoo. UI and Development Enhance.
     Support Odoo 18,17,16,15,14,13,12,11,10,9.
     You can config odoo, make it look like your own platform.
@@ -149,6 +147,7 @@
     47. Add ai robot app integration. Use Ai as your employee.
     48. Add configurable Test Label, Demo Ribbon on top menu.
     49. Add SaaS client switch for online Translate sync(18 only).
+    50. Quick Menu manager. de-active / active menu.
 
     This module can help to white label the Odoo.
     Also helpful for training and support for your odoo end-user.
@@ -206,5 +205,6 @@
     47. 增加Ai模块相关信息，可以快速访问ai模块，使用ai员工.
     48. 增加可配置的系统调试标签，用于系统测试期提示.
     49. 增加 SaaS 客户端开头，可让用户安装在线翻译同步模块及在线更新(仅odoo18).
+    50. 快速菜单管理，快速禁用/启用菜单.
     """,
 }
