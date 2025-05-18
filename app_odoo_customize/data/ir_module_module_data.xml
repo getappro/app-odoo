@@ -3,7 +3,7 @@
     <data>
        <!-- <record model="ir.module.module" id="base.module_web_studio">
             <field name="website">https://www.getap.pro</field>
-        </record>-->
+        </record>
 
         <record model="ir.module.module" id="base.module_timesheet_grid">
             <field name="website">https://www.getap.pro</field>
@@ -59,6 +59,6 @@
 
         <record model="ir.module.module" id="base.module_web_mobile">
             <field name="website">https://www.getap.pro</field>
-        </record>
+        </record>-->
     </data>
 </odoo>
