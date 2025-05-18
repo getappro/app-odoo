@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record model="ir.module.module" id="base.module_web_studio">
+       <!-- <record model="ir.module.module" id="base.module_web_studio">
             <field name="website">https://www.getap.pro</field>
-        </record>
+        </record>-->
 
         <record model="ir.module.module" id="base.module_timesheet_grid">
             <field name="website">https://www.getap.pro</field>
