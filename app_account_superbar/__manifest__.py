@@ -17,7 +17,7 @@
 
 {
     'name': "App account superbar navigator",
-    'version': '24.07.18',
+    'version': '17.0.25.07.15',
     'author': 'odooai.cn',
     'category': 'Extra tools',
     'website': 'https://www.odooai.cn',
@@ -25,11 +25,11 @@
     'license': 'LGPL-3',
     'sequence': 2,
     'summary': """
-    Browse journal by account chart... Use for parent children tree list kanban navigator. 
+    Browse journal by account chart... Use for parent children tree list kanban navigator.
     Hierarchy Tree.Parent Children relation tree..
     """,
     'description': """
-    Superbar, zTree widget. 
+    Superbar, zTree widget.
     Advance search with real parent children tree, ListView or KanbanView. parent tree, children tree,
     eg: Product category tree ,Department tree, stock location tree.
     超级方便的查询，树状视图。
@@ -42,6 +42,9 @@
     'images': ['static/description/banner.png'],
     'data': [
         'views/account_views.xml',
+        'views/account_move_line_views.xml',
+        'views/account_move_views.xml',
+        'views/account_analytic_line_views.xml',
     ],
     'demo': [
     ],
